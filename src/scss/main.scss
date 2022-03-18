@@ -1,0 +1,233 @@
+@import 'variables';
+@import 'utilities';
+
+//General CSS 
+body {
+  background: black;
+  margin: 0;
+  
+  .playerWrap {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 1em;
+    margin: 0 auto;
+    max-width: 800px;
+    background: #121212;
+    // @include sm {
+    //   width: 470px;
+    // }
+    // @include md {
+    //     width: 470px;
+    // }         
+    // @include lg {
+    //     width: 470px;
+    // } 
+    // @include xl {
+    //     width: 670px;
+    // }      
+    .player-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      padding: 1em;
+      color: white;
+      margin: 0 0 0em 0;
+    }
+    .player {
+      min-height: 9em;
+      margin: 0;
+      position: relative;
+      padding: 1em;
+      overflow: hidden;
+      background: #1e1c1f;
+      .large-toggle-btn {
+          font-size: 1.5em;
+          float: left;
+          width: 3em;
+        .large-play-btn {
+          &:before {
+            content: "\e1c4";
+            font: 2.3em/1.05 "Material Icons";
+            color: #f76906;
+          }               
+        }
+        .large-pause-btn {
+          &:before {
+            content: "\e1a2";
+            font: 2.3em/1.05 "Material Icons";
+            color: #1ab792;
+          }   
+          
+        }
+        .large-play-btn, .large-pause-btn {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          padding: 0.3em 0 0 0;
+        }            
+      }//end .play-box
+      .info-box {
+        position: relative;
+        padding-top: 0.8em;
+        float: left;
+        width: 75%;
+        .track-info-box {
+          visibility: visible;
+          .track-title-text {
+            display: inline-block;
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+            max-width: 30em;
+            line-height: 1.2;
+            min-height: 2.4em;
+          }
+          .track-subtitle-text {
+            color: #de332c;
+            font-size: 0.8em;
+            margin: 0 0 0.7em 0;
+            font-weight: bold;
+          }
+          .track-article-url {
+            color: #8b8b8b;
+            font-size: 0.875rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 100;
+          }
+          .audio-time {
+            display: inline-block;
+            width: 10em;
+            font-size: 1.1em;
+            color: #f76906;
+            overflow: hidden;
+            height: 1em;
+            width: 100%;
+            margin: 0.5em 0 1em 0;
+          }
+          @include clearfix();
+        }      
+      }
+      // .progress-box {
+      //   float: left;
+      //   min-width: 270px;
+      //   position: relative;
+      //   .progress-cell {
+      //     height: 12px;
+      //     position: relative;
+      //     .progress {
+      //       background: #fff;
+      //       border: 1px solid #d9d9d9;
+      //       height: 8px;
+      //       position: relative;
+      //       width: auto;
+      //       .progress-buffer {
+      //         background: #337ab7;
+      //         height: 100%;
+      //         width: 0;
+      //       }
+      //       .progress-indicator {
+      //         background: #fff;
+      //         border: 1px solid #bebebe;
+      //         border-radius: 3px;
+      //         cursor: pointer;
+      //         height: 10px;
+      //         left: 0;
+      //         overflow: hidden;
+      //         position: absolute;
+      //         top: -2px;
+      //         width: 22px;
+      //       }
+      //     }
+      //   }
+      // }//end .prgoress-box
+      // .controls-box {
+      //   bottom: 10px;
+      //   left: 350px;
+      //   position: absolute; 
+      //   .previous-track-btn {
+      //     &:before {
+      //       content: "\f049";
+      //       font: 1em "FontAwesome";
+      //     }             
+      //     cursor: pointer;
+      //     display: inline-block;
+      //   }
+      //   .next-track-btn {
+      //       &:before {
+      //       content: "\f050";
+      //       font: 1em "FontAwesome";
+      //     }             
+      //     cursor: pointer;
+      //     display: inline-block;        
+      //   }           
+      // }
+      // @include clearfix();
+    }
+    
+    .play-list {
+      display: block;
+      padding: 1em;
+      .play-list-row {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        .track-title {
+          .playlist-track {
+            &:hover {
+              color: #f76906;
+            }
+            font-size: 0.9em;
+            color: #aaa;
+            text-decoration: none;
+          }
+        }
+        .small-toggle-btn {
+          cursor: pointer;
+          display: inline-block;
+          height: 2em;
+          margin: 0 auto;
+          overflow: hidden;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          float: left;
+          width: 3em;
+          .small-play-btn {
+            &:before {
+              content: "\e1c4";
+              font: 1.75em "Material Icons";
+              color: #aaa;
+            }            
+            display: inline-block;
+          } 
+          .small-pause-btn {
+            &:before {
+              content: "\e1a2";
+              font: 1.75em "Material Icons";
+              color: #1ab792;
+            }            
+            display: inline-block;
+          }         
+        }
+        .track-number {
+          display: none;
+        }
+        .track-title {
+          display: inline-block;
+          float: left;
+          width: 70%;
+          margin: 0.2em 0em 0em 1.5em;
+          .playlist-track {
+            text-decoration: none;
+            &:hover {
+              color: #f76906;
+            }
+          }
+        }
+        .track-title.active-track {
+          font-weight: bold;
+        }
+        @include clearfix();
+      }
+    }
+  }
+}

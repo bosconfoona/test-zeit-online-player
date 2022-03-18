@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player with Playlist</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="dist/css/main.css">
+  <link rel="shortcut icon" href="#">
+</head>
+<body>
+  <div class="playerWrap">
+    <audio id="audio" preload="none" tabindex="0"></audio>
+    <div class="player">
+      <div class="large-toggle-btn">
+        <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
+      </div>
+      <div class="info-box">
+        <div class="track-info-box">
+          <div class="track-subtitle-text"></div>
+          <div class="track-title-text"></div>
+          <div class="audio-time">
+            <span class="current-time">00:00</span> /
+            <span class="duration">00:00</span>
+          </div>
+          <a href="" class="track-article-url">Artikel Lesen</a>
+        </div>
+        <div class="progress-box">
+          <div class="progress-cell">
+            <div class="progress">
+              <div class="progress-buffer"></div>
+              <div class="progress-indicator"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="controls-box">
+        <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
+        <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
+      </div>
+    </div>
+
+    <div class="play-list">
+       <!-- <div class="play-list-row" data-track-row="7">
+        <div class="small-toggle-btn">
+          <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+        </div>
+        <div class="track-number">7</div>
+        <div class="track-title">
+          <a class="playlist-track" href="#" data-play-track="7">Calexico - Across The Wire</a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <script>
+    fetch('https://speech.zeit.de/api/feeds/playlist/neue-nachrichten-test')
+    // .then(function (response) {
+    //     return response.json();
+    // })
+    // .then(function (data) {
+    //     feedPlayer(data);
+    // })
+    .then(response => response.json())
+    .then(data => feedPlayer(data))
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+
+    function feedPlayer(data) {
+      var mainContainer = document.querySelector(".playerWrap");
+      var playerSrc = document.querySelector("#audio");
+      var playlist = document.querySelector(".play-list");
+      var trackInfoBox = document.querySelector(".track-info-box");
+
+      var playlistTitle = document.createElement('div');
+      playlistTitle.classList.add('player-title')
+      mainContainer.insertBefore(playlistTitle, mainContainer.firstChild);
+      playlistTitle.innerHTML = `${data.title}`;
+
+      for (var i = 0; i < data.blocks.length; i++) {
+        var source = document.createElement('source');
+        source.src = data.blocks[i].items[0].url;
+        source.type = 'audio/ogg';
+        source.setAttribute('data-track-number', i + 1);
+        playerSrc.appendChild(source);
+
+        var playlistRow = document.createElement('div');
+        playlistRow.classList.add('play-list-row')
+        playlistRow.setAttribute('data-track-row', i + 1); 
+        
+        trackSuperTitle = data.blocks[i].items[0].supertitle;
+        articleUrl = data.blocks[i].items[0].webUrl;
+        trackTitle = data.blocks[i].items[0].title;
+        dateCreated = data.blocks[i].items;
+        //console.log(dateCreated)
+
+        trackNumber = i + 1;
+        playlistRow.innerHTML = `
+          <div class="small-toggle-btn">
+            <i class="small-play-btn"><span class="screen-reader-text">Small toggle button</span></i>
+          </div>
+          <div class="track-number">${trackNumber}</div>
+          <div class="track-title">
+            <a class="playlist-track" href="#" data-play-track=${trackNumber} data-subtitle='${trackSuperTitle}' data-article-url='${articleUrl}'>${trackTitle}</a>
+          </div>
+        ` ;
+        playlist.appendChild(playlistRow);
+      }
+      var script = document.createElement('script');
+      script.src = "dist/js/app.min.js";
+      document.getElementsByTagName('body')[0].appendChild(script);
+    }
+  </script>
+</body>
+</html>
+

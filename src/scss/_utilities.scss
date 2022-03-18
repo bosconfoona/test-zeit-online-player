@@ -1,0 +1,20 @@
+@mixin absolute($t, $r, $b, $l) {
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+//General classes
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.disabled {
+  color: #666; 
+  cursor: default;
+}
+.show {
+  display: inline-block !important;
+}
