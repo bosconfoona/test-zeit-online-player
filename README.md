@@ -2,7 +2,7 @@
 
 ## Install and DEV
 
-Run in Terminal in repo folder:
+After cloning go in Terminal to the repo folder and run:
 
 npm i (installs all dependencies and starts a server on localhost:3000)
 
