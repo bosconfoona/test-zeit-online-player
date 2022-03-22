@@ -1,5 +1,12 @@
 # ZEIT Player test from npm-build-boilerplate 
 
+## Install and DEV
+
+In Folder:
+
+npm i (Installs all dependencies and starts a server on localhost:3000)
+npm watch (Starts the server after install)
+
 ## IF Errors
 Install an older version of node-sass (npm install node-sass@4.12.0 --save)
 
