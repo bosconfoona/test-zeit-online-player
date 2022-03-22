@@ -2,10 +2,13 @@
 
 ## Install and DEV
 
-In Folder:
+Run in Terminal in repo folder:
 
-npm i (Installs all dependencies and starts a server on localhost:3000)
-npm watch (Starts the server after install)
+npm i (installs all dependencies and starts a server on localhost:3000)
+
+or for further developement 
+
+npm watch (starts the server and watches files for changes)
 
 ## IF Errors
 Install an older version of node-sass (npm install node-sass@4.12.0 --save)
