@@ -107,5 +107,7 @@ npm -v
   Runs `watch` after `npm install` is finished
 
 ## Description
+
+### Add Nachrichten als Playlist auf der Startseite.
 Als User möchte ich täglich und unkompliziert die aktuellsten nachrichten hören und als feed auf der Startseite finden. 
 Für weitere Recherche wären Metadaten und Verlinkungen zum Artikeln Sinnvoll.
