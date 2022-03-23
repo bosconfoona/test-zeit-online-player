@@ -105,3 +105,7 @@ npm -v
   `run-s build watch`
 
   Runs `watch` after `npm install` is finished
+
+## Description
+Als User möchte ich täglich und unkompliziert die aktuellsten nachrichten hören und als feed auf der Startseite finden. 
+Für weitere Recherche wären Metadaten und Verlinkungen zum Artikeln Sinnvoll.
