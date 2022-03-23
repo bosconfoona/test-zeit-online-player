@@ -361,6 +361,7 @@ var audioPlayer = function() {
       articleUrlBox.href = '#';
     }
     
+    console.log(articleUrl)
     document.title = trackSuperTitle;
   };
 

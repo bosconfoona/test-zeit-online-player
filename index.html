@@ -68,6 +68,7 @@
     });
 
     function feedPlayer(data) {
+      console.log(data)
       var mainContainer = document.querySelector(".playerWrap");
       var playerSrc = document.querySelector("#audio");
       var playlist = document.querySelector(".play-list");
@@ -109,7 +110,9 @@
       }
       var script = document.createElement('script');
       script.src = "dist/js/app.min.js";
-      document.getElementsByTagName('body')[0].appendChild(script);
+      //script.src = "src/js/main.js";
+      //document.getElementsByTagName('body')[0].appendChild(script);
+      document.body.appendChild(script);
     }
   </script>
 </body>
