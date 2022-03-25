@@ -26,6 +26,7 @@ var audioPlayer = function() {
     console.log('here')
     var initTrackTitleBox = document.querySelector(".player .info-box .track-info-box .track-title-text");
     var initTrackTitle = _elements.playListRows[0].children[2].innerText;  
+    console.log(_elements.playListRows[0].children[2].children[0].attributes[4].textContent)
 
     initTrackTitleBox.innerHTML = null;
     initTrackTitleBox.innerHTML = initTrackTitle;
@@ -37,6 +38,15 @@ var audioPlayer = function() {
       initTrackSubTitleBox.innerHTML = initTrackSuperTitle;
     } else {
       initTrackSubTitleBox.innerHTML = 'Die Nachrichten';
+    }
+
+    var initTrackSubUrl = document.querySelector(".player .info-box .track-info-box .track-article-url");
+    var initTrackUrl = _elements.playListRows[0].children[2].children[0].attributes[4].textContent;
+
+    if (initTrackUrl !== "null" || initTrackUrl === null) {
+      initTrackSubUrl.href = initTrackUrl;
+    } else {
+      initTrackSubUrl.href = '#';
     }
   }
   onLoad();
